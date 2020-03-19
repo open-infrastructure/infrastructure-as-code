@@ -24,7 +24,7 @@ resource "azurerm_resource_group" "vpn_rg" {
 }
 
 resource "azurerm_dns_zone" "vpn_dns" {
-  name                = "vpn.cedi.dev"
+	name     = var.environment == "Prod" ? "vpn.cedi.dev" : "vpn.${var.environment}.cedi.dev"
   resource_group_name = azurerm_resource_group.vpn_rg.name
 
   tags = {
