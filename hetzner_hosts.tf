@@ -23,7 +23,7 @@ resource "azurerm_dns_aaaa_record" "hcloud_host_dns_entry" {
   zone_name           = azurerm_dns_zone.vpn_dns.name
   resource_group_name = azurerm_dns_zone.vpn_dns.resource_group_name
   ttl                 = 300
-  records             = ["2a01:4f8:120:23b3::1"]
+  records             = ["2a01:4f8:120:23b3::2"]
 
   tags = {
     Environment = var.environment
