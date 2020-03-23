@@ -20,8 +20,8 @@ resource "azurerm_dns_a_record" "hcloud_host_dns_entry" {
 
 resource "azurerm_dns_aaaa_record" "hcloud_host_dns_entry" {
   name                = "prometheus"
-  zone_name           = azurerm_dns_zone.vpn_dns.name
-  resource_group_name = azurerm_dns_zone.vpn_dns.resource_group_name
+  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
+  resource_group_name = azurerm_dns_zone.openinfrastructure_rg.resource_group_name
   ttl                 = 300
   records             = ["2a01:4f8:120:23b3::2"]
 
