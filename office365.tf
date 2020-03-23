@@ -80,7 +80,7 @@ resource "azurerm_dns_srv_record" "_sip" {
   name                = "@"
   zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 300
+  ttl                 = 3600
 
   record {
     priority = 100
@@ -94,7 +94,7 @@ resource "azurerm_dns_srv_record" "_sipfederationtls" {
   name                = "@"
   zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 300
+  ttl                 = 3600
 
   record {
     priority = 100
