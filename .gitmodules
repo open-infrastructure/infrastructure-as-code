@@ -1,0 +1,3 @@
+[submodule "modules/terraform-hcloud_azuredns"]
+	path = modules/terraform-hcloud_azuredns
+	url = git@github.com:open-infrastructure/terraform-hcloud_azuredns.git
