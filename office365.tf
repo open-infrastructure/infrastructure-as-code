@@ -59,3 +59,47 @@ resource "azurerm_dns_txt_record" "dmarc_record" {
     value = "v=DMARC1; p=quarantine"
   }
 }
+
+resource "azurerm_dns_cname_record" "sip" {
+  name                = "sip"
+  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
+  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
+  ttl                 = 3600
+  record              = "sipdir.online.lync.com"
+}
+
+resource "azurerm_dns_cname_record" "lyncdiscover" {
+  name                = "lyncdiscover"
+  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
+  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
+  ttl                 = 3600
+  record              = "sipdir.online.lync.com"
+}
+
+resource "azurerm_dns_srv_record" "_sip" {
+  name                = "@"
+  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
+  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
+  ttl                 = 300
+
+  record {
+    priority = 100
+    weight   = 1
+    port     = 443
+    target   = "sipdir.online.lync.com"
+  }
+}
+
+resource "azurerm_dns_srv_record" "_sipfederationtls" {
+  name                = "@"
+  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
+  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
+  ttl                 = 300
+
+  record {
+    priority = 100
+    weight   = 1
+    port     = 5061
+    target   = "sipdir.online.lync.com"
+  }
+}
