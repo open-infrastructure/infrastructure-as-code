@@ -14,13 +14,3 @@ provider "hcloud" {
 terraform {
 }
 
-resource "azurerm_resource_group" "vpn_rg" {
-	name     = var.environment == "Prod" ? "vpn_rg" : "${var.environment}_vpn_rg"
-  location = "westeurope"
-}
-
-resource "azurerm_dns_zone" "vpn_dns" {
-	name     = var.environment == "Prod" ? "vpn.cedi.dev" : "vpn.${var.environment}.cedi.dev"
-  resource_group_name = azurerm_resource_group.vpn_rg.name
-}
-
