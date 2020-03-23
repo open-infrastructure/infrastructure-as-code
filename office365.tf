@@ -30,7 +30,7 @@ resource "azurerm_dns_mx_record" "outlook_mx" {
 
   record {
     preference = 0
-    exchange   = "open-infrastructure-de.mail.protection.outlook.com"
+		exchange   = "openinfrastructure-de01b.mail.protection.outlook.com"
   }
 }
 
@@ -39,7 +39,7 @@ resource "azurerm_dns_cname_record" "dkim_selector1" {
   zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
   ttl                 = 3600
-  record              = "selector1-open-infrastructure-de._domainkey.openinfrastructure.onmicrosoft.com"
+  record              = "selector1-openinfrastructure-de01b._domainkey.openinfrastructure.onmicrosoft.com"
 }
 
 resource "azurerm_dns_cname_record" "dkim_selector2" {
@@ -47,7 +47,7 @@ resource "azurerm_dns_cname_record" "dkim_selector2" {
   zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
   ttl                 = 3600
-  record              = "selector2-open-infrastructure-de._domainkey.openinfrastructure.onmicrosoft.com"
+  record              = "selector2-openinfrastructure-de01b._domainkey.openinfrastructure.onmicrosoft.com"
 }
 
 resource "azurerm_dns_txt_record" "dmarc_record" {
