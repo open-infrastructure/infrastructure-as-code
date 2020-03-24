@@ -92,8 +92,7 @@ resource "azurerm_dns_srv_record" "_sip" {
     priority = 100
     weight   = 1
     port     = 5061
-    target   = "sipdir.online.lync.com"
+    target   = "sipfed.online.lync.com"
   }
-
 }
 
