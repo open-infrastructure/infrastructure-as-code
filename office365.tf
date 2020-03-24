@@ -73,7 +73,7 @@ resource "azurerm_dns_cname_record" "lyncdiscover" {
   zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
   ttl                 = 3600
-  record              = "sipdir.online.lync.com"
+  record              = "webdir.online.lync.com"
 }
 
 resource "azurerm_dns_srv_record" "_sip" {
@@ -88,18 +88,12 @@ resource "azurerm_dns_srv_record" "_sip" {
     port     = 443
     target   = "sipdir.online.lync.com"
   }
-}
-
-resource "azurerm_dns_srv_record" "_sipfederationtls" {
-  name                = "@"
-  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-
-  record {
+	record {
     priority = 100
     weight   = 1
     port     = 5061
     target   = "sipdir.online.lync.com"
   }
+
 }
+
