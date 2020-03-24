@@ -50,15 +50,15 @@ resource "azurerm_dns_cname_record" "dkim_selector2" {
   record              = "selector2-openinfrastructure-de01b._domainkey.cedidev.onmicrosoft.com"
 }
 
-#resource "azurerm_dns_txt_record" "dmarc_record" {
-#  name                = "_dmarc.open-infrastructure.dev"
-#  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
-#  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-#  ttl                 = 3600
-#  record {
-#    value = "v=DMARC1; p=quarantine"
-#  }
-#}
+resource "azurerm_dns_txt_record" "dmarc_record" {
+  name                = "_dmarc.open-infrastructure.dev"
+  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
+  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
+  ttl                 = 3600
+  record {
+    value = "v=DMARC1; p=quarantine"
+  }
+}
 
 resource "azurerm_dns_cname_record" "sip" {
   name                = "sip"
