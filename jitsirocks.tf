@@ -1,6 +1,6 @@
 module "jitsi_big" {
   source = "./modules/terraform-hcloud_azuredns"
-  server_name = "fsn1-gw1"
+  server_name = "de-fsn-3"
   ssh_keys = ["cedi@ivy", "cedi@ivy legacy", "azure_pipelines"]
   az_dns_zone = azurerm_dns_zone.vpn_oi_dns
 	environment = var.environment
