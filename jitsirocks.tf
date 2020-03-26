@@ -1,5 +1,5 @@
 resource "azurerm_dns_zone" "jitsi_rocks_dns" {
-  name                = "vpn.open-infrastructure.de"
+  name                = "jitsi.rocks"
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
 }
 
