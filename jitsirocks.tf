@@ -109,7 +109,7 @@ resource "azurerm_dns_a_record" "us-nyc-1" {
   records             = ["134.122.21.142"]
 }
 
-resource "azurerm_dns_a_record" "www" {
+resource "azurerm_dns_a_record" "www_jitsi_rocks" {
   name                = "www"
   zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
@@ -238,7 +238,7 @@ resource "azurerm_dns_aaaa_record" "us-nyc-1" {
   records             = ["2604:a880:400:d0::1879:2001"]
 }
 
-resource "azurerm_dns_aaaa_record" "www" {
+resource "azurerm_dns_aaaa_record" "www_jitsi_rocks" {
   name                = "www"
   zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
