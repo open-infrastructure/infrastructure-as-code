@@ -8,7 +8,7 @@ module "auth" {
   server_type = "cx11"
 }
 
-module "auth" {
+module "sso" {
   source = "./modules/terraform-hcloud_azuredns"
   server_name = "sso"
   ssh_keys = ["cedi@ivy", "cedi@ivy legacy", "azure_pipelines"]
