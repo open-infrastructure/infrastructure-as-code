@@ -34,3 +34,14 @@ resource "azurerm_dns_txt_record" "spf_and_ms_verification" {
     value = "MS=ms31800594"
   }
 }
+
+resource "azurerm_dns_txt_record" "github_challenge" {
+  name                = "_github-challenge-open-infrastructure"
+  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
+  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
+  ttl                 = 3600
+	record {
+		value = "b222d3fa0a"
+	}
+}
+
