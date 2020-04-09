@@ -35,31 +35,6 @@ resource "azurerm_dns_a_record" "de-fsn-1" {
   records             = ["49.12.40.92"]
 }
 
-resource "azurerm_dns_cname_record" "de-fsn-2" {
-  name                = "de-fsn-2"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["custom01.jitsi.rocks"]
-}
-
-
-
-resource "azurerm_dns_cname_record" "de-nue-1" {
-  name                = "de-nue-1"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["custom01.jitsi.rocks"]
-}
-
-resource "azurerm_dns_cname_record" "de-nue-2" {
-  name                = "de-nue-2"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["custom01.jitsi.rocks"]
-}
 
 resource "azurerm_dns_a_record" "de-wob-1" {
   name                = "de-wob-1"
