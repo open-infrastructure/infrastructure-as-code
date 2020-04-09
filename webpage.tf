@@ -14,7 +14,7 @@ resource "azurerm_dns_aaaa_record" "default_www_openinfra" {
   records             = ["2a01:4f9:c010:2dba::1"]
 }
 
-resource "azurem_dns_cname_record" "staging_openinfra" {
+resource "azurerm_dns_cname_record" "staging_openinfra" {
   name                =  "staging"
   zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
