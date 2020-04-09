@@ -19,7 +19,7 @@ resource "azurerm_dns_cname_record" "staging_openinfra" {
   zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
   ttl                 = 3600
-  records             = ["www.open-infrastructure.de."]
+  record              = ["www.open-infrastructure.de."]
 }
 
 resource "azurerm_dns_a_record" "www_openinfra" {
