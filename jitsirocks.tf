@@ -302,7 +302,7 @@ resource "azurerm_dns_mx_record" "maint_mx" {
 
 module "jitsi_rock_dev" {
   source = "./modules/terraform-hcloud_azuredns"
-  server_name = "dev"
+  server_name = "jitsidev"
   ssh_keys = ["cedi@ivy", "cedi@ivy legacy", "azure_pipelines"]
   az_dns_zone = azurerm_dns_zone.jitsi_rocks_dns
 	environment = var.environment
