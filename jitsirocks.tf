@@ -36,8 +36,8 @@ resource "azurerm_dns_a_record" "de-fsn-1" {
 }
 
 
-resource "azurerm_dns_a_record" "de-wob-1" {
-  name                = "de-wob-1"
+resource "azurerm_dns_a_record" "de-wob-2" {
+  name                = "de-wob-2"
   zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
   ttl                 = 3600
