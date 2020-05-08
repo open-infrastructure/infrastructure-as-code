@@ -278,6 +278,14 @@ resource "azurerm_dns_cname_record" "uptime" {
   record              = "stats.uptimerobot.com"
 }
 
+resource "azurerm_dns_cname_record" "staging" {
+   name                = "staging"
+   zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
+   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
+   ttl                 = 3600
+   record              = "jitsi.rocks"
+} 
+
 resource "azurerm_dns_mx_record" "mx" {
   name                = "@"
   zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
