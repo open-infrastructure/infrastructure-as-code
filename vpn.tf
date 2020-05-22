@@ -11,12 +11,3 @@ resource "azurerm_dns_ns_record" "vpn" {
   records = azurerm_dns_zone.vpn_oi_dns.name_servers
 }
 
-module "de-fsn1-gw1" {
-  source = "./modules/terraform-hcloud_azuredns"
-  server_name = "de-fsn1-gw1"
-  ssh_keys = ["cedi@ivy", "cedi@ivy legacy", "azure_pipelines"]
-  az_dns_zone = azurerm_dns_zone.vpn_oi_dns
-	environment = var.environment
-	image = "ubuntu-18.04"
-}
-

@@ -45,3 +45,12 @@ resource "azurerm_dns_txt_record" "github_challenge" {
 	}
 }
 
+module "cedi_jumphost" {
+  source = "./modules/terraform-hcloud_azuredns"
+  server_name = "cedi"
+  ssh_keys = ["cedi@ivy", "cedi@ivy legacy", "cedi@iPad"]
+  az_dns_zone = azurerm_dns_zone.openinfrastructure_dns
+	environment = var.environment
+  server_type = "cx11"
+	image = "ubuntu-20.04"
+}
