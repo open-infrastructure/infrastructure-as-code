@@ -284,7 +284,7 @@ resource "azurerm_dns_cname_record" "staging" {
    resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
    ttl                 = 3600
    record              = "jitsi.rocks"
-} 
+}
 
 resource "azurerm_dns_mx_record" "mx" {
   name                = "@"
@@ -308,12 +308,3 @@ resource "azurerm_dns_mx_record" "maint_mx" {
   }
 }
 
-module "jitsi_rock_dev" {
-  source = "./modules/terraform-hcloud_azuredns"
-  server_name = "meetdev"
-  ssh_keys = ["cedi@ivy", "cedi@ivy legacy", "azure_pipelines"]
-  az_dns_zone = azurerm_dns_zone.jitsi_rocks_dns
-	environment = var.environment
-  server_type = "cx11"
-	image = "ubuntu-18.04"
-}
