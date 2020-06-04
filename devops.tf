@@ -72,7 +72,7 @@ module "kibana" {
   ssh_keys = ["cedi@ivy", "tmueller@macmuell", "td00@runyoucleverboy", "cedi@iPad"]
   az_dns_zone = azurerm_dns_zone.openinfrastructure_dns
 	environment = var.environment
-  server_type = "cx21"
+  server_type = "cx11"
 	image = "ubuntu-18.04"
 }
 
