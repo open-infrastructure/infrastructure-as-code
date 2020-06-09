@@ -141,15 +141,6 @@ resource "azurerm_dns_aaaa_record" "de-fsn-1" {
   records             = ["2a01:4f8:c17:975d::1"]
 }
 
-
-resource "azurerm_dns_aaaa_record" "de-wob-1" {
-  name                = "de-wob-1"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["2a0e:1580:1000::2dff:fe0e:e991"]
-}
-
 resource "azurerm_dns_aaaa_record" "fi-hel-1" {
   name                = "fi-hel-1"
   zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
