@@ -66,13 +66,3 @@ module "zammad" {
 	image = "ubuntu-18.04"
 }
 
-module "kibana" {
-  source = "./modules/terraform-hcloud_azuredns"
-  server_name = "kibana"
-  ssh_keys = ["cedi@ivy", "tmueller@macmuell", "td00@runyoucleverboy", "cedi@iPad"]
-  az_dns_zone = azurerm_dns_zone.openinfrastructure_dns
-	environment = var.environment
-  server_type = "cx11"
-	image = "ubuntu-18.04"
-}
-
