@@ -1,5 +1,5 @@
 resource "hcloud_network" "k8_network" {
-  name = "my-net"
+  name = "k8-net"
   ip_range = "10.240.0.0/16"
 }
 
