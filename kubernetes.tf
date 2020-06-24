@@ -1,11 +1,9 @@
-resource "hcloud_network" "k8_network" {
-  name = "k8-net"
-  ip_range = "10.240.0.0/16"
+module "k8" {
+  source = "./modules/hetzner-k8"
+  cluster_name="oi-k8"
+  image="ubuntu-20.04"
+  control_plane_type="cx11"
+  lb_type="cx11"
+  worker_type="cx11"
 }
 
-resource "hcloud_network_subnet" "k8_subnet" {
-  network_id = hcloud_network.k8_network.id
-  type = "cloud"
-  network_zone = "eu-central"
-  ip_range   = "10.240.0.0/24"
-}
