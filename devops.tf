@@ -66,13 +66,16 @@ module "zammad" {
 	image = "ubuntu-18.04"
 }
 
-module "kibana" {
-  source = "./modules/terraform-hcloud_azuredns"
-  server_name = "kibana"
-  ssh_keys = ["cedi@ivy", "tmueller@macmuell", "td00@runyoucleverboy", "cedi@iPad"]
-  az_dns_zone = azurerm_dns_zone.openinfrastructure_dns
-	environment = var.environment
-  server_type = "cx11"
-	image = "ubuntu-18.04"
+resource "azurerm_dns_zone" "k8s_openinfrastructure_dns" {
+  name                = "k8s.open-infrastructure.de"
+  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
 }
 
+resource "azurerm_dns_ns_record" "ns_k8s_openinfrastructure_dns" {
+  name                = "k8s"
+  zone_name           = azurerm_dns_zone.openinfrastructure_dns.name
+  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
+  ttl                 = 300
+
+  records = azurerm_dns_zone.k8s_openinfrastructure_dns.name_servers
+}

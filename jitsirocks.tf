@@ -60,29 +60,7 @@ resource "azurerm_dns_a_record" "fi-hel-2" {
   records             = ["95.217.158.207"]
 }
 
-resource "azurerm_dns_a_record" "gb-lon-1" {
-  name                = "gb-lon-1"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["134.122.109.226"]
-}
 
-resource "azurerm_dns_a_record" "nl-ams-1" {
-  name                = "nl-ams-1"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["134.122.59.59"]
-}
-
-resource "azurerm_dns_a_record" "us-nyc-1" {
-  name                = "us-nyc-1"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["134.122.21.142"]
-}
 
 resource "azurerm_dns_a_record" "www_jitsi_rocks" {
   name                = "www"
@@ -141,6 +119,7 @@ resource "azurerm_dns_aaaa_record" "de-fsn-1" {
   records             = ["2a01:4f8:c17:975d::1"]
 }
 
+<<<<<<< HEAD
 
 resource "azurerm_dns_aaaa_record" "de-wob-2" {
   name                = "de-wob-2"
@@ -150,6 +129,8 @@ resource "azurerm_dns_aaaa_record" "de-wob-2" {
   records             = ["2a0e:1580:1000::2dff:fe0e:e991"]
 }
 
+=======
+>>>>>>> 2867ba5f0cf6a9611ea96be7585777f7197ef4c8
 resource "azurerm_dns_aaaa_record" "fi-hel-1" {
   name                = "fi-hel-1"
   zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
@@ -164,30 +145,6 @@ resource "azurerm_dns_aaaa_record" "fi-hel-2" {
   resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
   ttl                 = 3600
   records             = ["2a01:4f9:c010:7693::1"]
-}
-
-resource "azurerm_dns_aaaa_record" "gb-lon-1" {
-  name                = "gb-lon-1"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["2a03:b0c0:1:e0::54c:7001"]
-}
-
-resource "azurerm_dns_aaaa_record" "nl-ams-1" {
-  name                = "nl-ams-1"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["2a03:b0c0:2:f0::35c:9001"]
-}
-
-resource "azurerm_dns_aaaa_record" "us-nyc-1" {
-  name                = "us-nyc-1"
-  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
-  resource_group_name = azurerm_resource_group.openinfrastructure_rg.name
-  ttl                 = 3600
-  records             = ["2604:a880:400:d0::1879:2001"]
 }
 
 resource "azurerm_dns_aaaa_record" "www_jitsi_rocks" {
