@@ -184,6 +184,14 @@ resource "azurerm_dns_cname_record" "customroom_bbb" {
   record              = "web.td00.de"
 }
 
+resource "azurerm_dns_cname_record" "bbb" {
+  name                = "bbb"
+  zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
+  reource_group_name  = azurerm_resource_group.openinfrastructure_rg.name
+  ttl                 = 3600
+  record              = "web.td00.de"
+}
+
 resource "azurerm_dns_cname_record" "cluster_uptime" {
   name                = "cluster.uptime"
   zone_name           = azurerm_dns_zone.jitsi_rocks_dns.name
